@@ -6,7 +6,8 @@ class AsosHomePage
   end
 
   def click_sign_in_link
-    # click_link("idcta-link")
+    click_button(:class, '_3TGKcxB wN7TsRy')
+    click_link(:class, '_1k1reGo')
   end
 
   def click_sign_out
@@ -14,7 +15,8 @@ class AsosHomePage
   end
 
   def signed_in?
-    # find_link("Your account").visible?
+    # click_button(:class, '_3TGKcxB wN7TsRy')
+    find_link("Hi Steven").visible?
   end
 
   def sign_out?
