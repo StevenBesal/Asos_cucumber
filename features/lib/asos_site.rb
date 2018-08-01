@@ -7,8 +7,12 @@ module AsosSite
     AsosHomePage.new
   end
 
-  # def asos_accounts_page
-  #   AsosAccountPage.new
-  # end
+  def asos_accounts_page
+    AsosAccountPage.new
+  end
+
+  def asos_pages
+    AsosPages.new
+  end
 
 end

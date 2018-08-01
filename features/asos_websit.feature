@@ -27,7 +27,7 @@ Feature: User login
     And I move to signup page
     When I entre a username
     And I entre an invalid password and click login <password>
-    Then I should receive an <error> message
+    Then I should receive a message <error>
 
   Examples:
     | password |                errors                    |

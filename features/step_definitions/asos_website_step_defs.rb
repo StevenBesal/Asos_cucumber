@@ -3,50 +3,52 @@ Given("I am on the Asos homepage") do
 end
 
 Given("I move to sign in page") do
-  pending # Write code here that turns the phrase above into concrete actions
-
+  asos_homepage.click_sign_in_link
 end
 
 When("I entre my username") do
-  pending # Write code here that turns the phrase above into concrete actions
+  asos_accounts_page.input_username ''
 end
 
 When("I entre my valid password and click login") do
-  pending # Write code here that turns the phrase above into concrete actions
+  asos_accounts_page.input_password ''
 end
 
 Then("I should be loggged into my account") do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(asos_homepage.signed_in?).to be true
+  sleep 2
 end
 
 Given("I am signed in on the homepage") do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(asos_homepage.signed_in?).to be true
 end
 
 Given("Click the logout hidden on the page") do
-  pending # Write code here that turns the phrase above into concrete actions
+  asos_homepage.click_sign_out
 end
 
 Then("I should be logged out of my account") do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(asos_homepage.sign_out?).to be true
 end
 
 Given("I move to signup page") do
-  pending # Write code here that turns the phrase above into concrete actions
+  asos_homepage.click_signup
 end
 
 When("I entre a username") do
-  pending # Write code here that turns the phrase above into concrete actions
+  asos_accounts_page.input_new_username 'stebe123@hotmail.co.uk'
 end
 
-When("I entre an invalid password and click login ") do
-  pending # Write code here that turns the phrase above into concrete actions
+When(/^I entre an invalid password and click login (.*)$/) do |password|
+  asos_accounts_page.input_invalid_password password
+  asos_accounts_page.input_invalid_password.send_keys :tab
+  sleep 2
 end
 
-Then("I should receive an <error> message") do
-  pending # Write code here that turns the phrase above into concrete actions
+Then(/^I should receive a message (.*)$/) do |error|
+  expect(asos_accounts_page.check_password_error).to eq error
+  sleep 2
 end
-
 
 When("I entre an invalid password and click login {int}") do |int|
   pending # Write code here that turns the phrase above into concrete actions
@@ -61,7 +63,7 @@ When("I entre an invalid password and click login {int}ab") do |int|
 end
 
 When("I move to new in and all stock") do
-  pending # Write code here that turns the phrase above into concrete actions
+  asos_pages.click_new_in
 end
 
 When("I change a few of the filters") do
